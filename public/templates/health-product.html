@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Producto Premium - Salud y Bienestar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; }
+    
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-content h1 { 
+      font-size: 3.5rem; 
+      margin-bottom: 20px; 
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    
+    .hero-content p { 
+      font-size: 1.3rem; 
+      margin-bottom: 30px; 
+      max-width: 600px;
+      opacity: 0.95;
+    }
+    
+    .cta-btn {
+      background: #ff6b6b;
+      color: white;
+      padding: 18px 50px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+    }
+    
+    .cta-btn:hover { 
+      background: #ff5252; 
+      transform: translateY(-3px); 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* SECTION */
+    section { padding: 80px 20px; }
+    section h2 { font-size: 2.8rem; text-align: center; margin-bottom: 60px; font-weight: 700; }
+    
+    /* BENEFITS */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+    
+    .benefit-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 40px 30px;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      border-left: 5px solid #667eea;
+    }
+    
+    .benefit-card:hover { transform: translateY(-10px); }
+    .benefit-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #667eea; }
+    .benefit-card p { color: #555; font-size: 1.05rem; }
+    
+    /* SPECS */
+    .specs { background: #f8f9fa; }
+    .specs-table {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    .specs-table tr { border-bottom: 2px solid #eee; }
+    .specs-table tr:last-child { border-bottom: none; }
+    .specs-table td { padding: 25px; font-size: 1.05rem; }
+    .specs-table td:first-child { 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: bold;
+      width: 35%;
+    }
+    
+    /* TESTIMONIALS */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .testimonial-card {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-top: 4px solid #ffc107;
+    }
+    
+    .stars { color: #ffc107; font-size: 1.4rem; margin-bottom: 15px; }
+    .testimonial-text { font-style: italic; color: #555; margin-bottom: 20px; }
+    .testimonial-author { font-weight: bold; color: #333; }
+    
+    /* FAQ */
+    .faq { background: #f8f9fa; }
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    
+    .faq-item { 
+      background: white; 
+      margin-bottom: 20px; 
+      border-radius: 10px; 
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .faq-question { 
+      padding: 25px; 
+      cursor: pointer; 
+      font-weight: bold;
+      font-size: 1.1rem;
+      background: #f0f2f5;
+      transition: background 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-question:hover { background: #e8ebf0; }
+    .faq-answer { padding: 25px; color: #555; display: none; }
+    .faq-item.active .faq-answer { display: block; }
+    
+    /* CTA FINAL */
+    .cta-final { 
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); 
+      color: white;
+      text-align: center;
+    }
+    
+    .cta-final h2 { color: white; font-size: 2.5rem; }
+    .cta-final p { color: rgba(255,255,255,0.95); font-size: 1.2rem; }
+    
+    /* FOOTER */
+    .footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    
+    .footer p { margin: 10px 0; }
+    
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content p { font-size: 1rem; }
+      section h2 { font-size: 1.8rem; }
+      .specs-table td { padding: 15px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Revoluciona Tu Salud Hoy</h1>
+      <p>Descubre el producto premium que miles de clientes ya utilizan para transformar su vida</p>
+      <button class="cta-btn">Comprar Ahora - 50% Descuento Hoy</button>
+    </div>
+  </div>
+
+  <!-- BENEFITS SECTION -->
+  <section>
+    <div class="container">
+      <h2>Por Qué Elegir Nuestro Producto</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>💪 Máxima Potencia</h3>
+          <p>Fórmula concentrada con ingredientes premium de la más alta calidad</p>
+        </div>
+        <div class="benefit-card">
+          <h3>⚡ Resultados Rápidos</h3>
+          <p>Notarás cambios significativos en solo 2-3 semanas de uso consistente</p>
+        </div>
+        <div class="benefit-card">
+          <h3>🌿 100% Natural</h3>
+          <p>Ingredientes orgánicos certificados, sin aditivos ni químicos sintéticos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS SECTION -->
+  <section class="specs">
+    <div class="container">
+      <h2>Especificaciones del Producto</h2>
+      <table class="specs-table">
+        <tr>
+          <td>Ingredientes Principales</td>
+          <td>Extracto de Raíz de Jengibre, Vitamina D3, Omega-3, Zinc Quelado</td>
+        </tr>
+        <tr>
+          <td>Presentación</td>
+          <td>Frasco de 500ml o 100 cápsulas (elije tu preferida)</td>
+        </tr>
+        <tr>
+          <td>Dosis Recomendada</td>
+          <td>2 veces al día con las comidas principales</td>
+        </tr>
+        <tr>
+          <td>Certificaciones</td>
+          <td>Certificado Orgánico, Laboratorio Certificado, Garantía 30 Días</td>
+        </tr>
+        <tr>
+          <td>Duración</td>
+          <td>Cada frasco dura 30 días con dosis normal</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section>
+    <div class="container">
+      <h2>Testimonios de Nuestros Clientes Satisfechos</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Producto excepcional. Después de 3 semanas siento una energía que no tenía hace años. La diferencia es increíble."</p>
+          <p class="testimonial-author">— Juan García, 45 años</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"He probado muchos productos pero este es definitivamente el mejor. Calidad premium, resultados reales. Lo recomiendo 100%."</p>
+          <p class="testimonial-author">— María Rodríguez, 38 años</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Mi salud mejoró dramáticamente. El envío fue rápido, el producto llegó perfecto y el servicio al cliente es excelente."</p>
+          <p class="testimonial-author">— Carlos López, 52 años</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq">
+    <div class="container">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Es completamente seguro para todos?
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            Sí, nuestro producto está formulado con ingredientes 100% naturales y ha sido probado en laboratorio. Es seguro para adultos y adolescentes mayores de 16 años. Si está embarazada, en período de lactancia o tiene condiciones médicas especiales, consulte con su médico.
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Cuándo empezaré a ver resultados?
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            Muchos clientes notan cambios en 7-10 días, aunque los mejores resultados se ven entre 2-4 semanas de uso consistente. Recuerda que la clave es la constancia.
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Ofrecen garantía de satisfacción?
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            Absolutamente. Ofrecemos garantía de 30 días 100% sin riesgos. Si no estás completamente satisfecho, devolvemos tu dinero sin preguntas.
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Hay efectos secundarios?
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            No. Nuestro producto es 100% natural y no tiene efectos secundarios conocidos. Sin embargo, en casos raros algunos pueden experimentar una leve desintoxicación los primeros días.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>¡No Esperes Más!</h2>
+      <p>Oferta especial: 50% de descuento HOY SOLAMENTE - Stock limitado</p>
+      <button class="cta-btn" style="margin-top: 30px;">Ordenar Ahora - Oferta Limitada</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="container">
+      <p style="font-size: 1.1rem; font-weight: bold;">© 2024 Tu Marca Premium. Todos los derechos reservados.</p>
+      <p><a href="#" style="color: #888; text-decoration: none;">Política de Privacidad</a> | 
+         <a href="#" style="color: #888; text-decoration: none;">Términos de Servicio</a> | 
+         <a href="#" style="color: #888; text-decoration: none;">Contacto</a></p>
+      <p style="font-size: 0.9rem; margin-top: 20px; color: #888;">Envío a toda Latinoamérica • Garantía 30 Días • Atención al Cliente 24/7</p>
+    </div>
+  </div>
+
+  <script>
+    // FAQ Toggle
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', function() {
+        this.parentElement.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
